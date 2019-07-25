@@ -1,0 +1,23 @@
+{% extends 'app1/base.html' %}
+{% block body_block %}
+    <div class="jumbotron">
+        <h1><b>Gensic - Recommendations </b></h1>
+
+        <h3><p> Welcome to the recommendations! Here, we recommend the best music just for you! All you have to do is search for a couple of songs you really like and we can recommend some similar songs that we're sure you'll love! So what are you waiting for? Let's get started!</p></h3>
+
+        <form method="POST">
+            {{ form8.as_p }}
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Click to search for songs or lyrics">
+        </form>
+    </div>
+
+    <div class="jumbotron">
+        {% if mj %}
+            {% for j in mj %}
+                <h3><strong><em>{{ j.singer }}</em></strong></h3>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock %}

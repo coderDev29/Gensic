@@ -1,0 +1,27 @@
+{% extends 'app1/base.html' %}
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1><b>Gensic - Song Searcher</b></h1>
+            <h3><p>Hello and welcome to the Song Searcher! Here, you can search for any song you like. Have you ever heard a song and wanted to know what it was called? Well, you've come to the right place! Simply type in the lyrics to any song and we can let you know the name of the song in a jiffy! What are you waiting for? Try it out!</p> </h3>
+            <form method="POST">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="Click to search for songs or lyrics">
+            </form>
+        </div>
+    {% if posts %}
+        <div class="jumbotron">
+        {% for post in posts %}
+            <h3><strong>{{ post.artist }}</strong></h3>
+            <h3>{{ post.song }}</h3>
+        {% endfor %}
+        </div>
+    {% else %}
+        <div class="jumbotron">
+            <h3>Your search results will appear here</h3>
+        </div>
+    {% endif %}
+    </div>
+
+{% endblock %}

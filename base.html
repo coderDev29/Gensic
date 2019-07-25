@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Gensic</title>
+  <link rel="icon" href="https://d30y9cdsu7xlg0.cloudfront.net/png/32232-200.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pouchdb@7.1.1/dist/pouchdb.min.js"></script>
+</head>
+<body>
+<script src="index.js">
+</script>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'index' %}"><img src="https://cdn.discordapp.com/attachments/596570958601388078/596670448918593550/Screenshot_2019-07-05_at_5.24.37_PM.png" width=40 height=40></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'app1:songSearcher' %}">Song Searcher</a></li>
+        <li><a href="{% url 'app1:artistSearcher' %}">Artist Searcher</a></li>
+        <li><a href="{% url 'app1:recommendations' %}">Recommendations</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    {% block body_block %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

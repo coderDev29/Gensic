@@ -1,0 +1,24 @@
+{% extends 'app1/base.html' %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1><strong>Gensic - Artist Searcher</strong></h1>
+      <h4>There are so many artists out there, each with their own styles, genres and music. So how do you know which artists you should listen to, and how can you look at all the music your favourite artists have come up with? Well, right here! Just type in the name of any artist you would like and you can look at your favorite artists' music in depth! Have fun!</h4>
+      <form method="POST">
+        {{ form5.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-warning" value="Search Artist!">
+      </form>
+    </div>
+    <div class="jumbotron">
+      {% if modelStuff %}
+          {% for post in modelStuff %}
+            <h3><strong>{{ post.artist }}</strong></h3>
+            <h3>{{ post.song }}</h3>
+          {% endfor %}
+      {% else %}
+        <h3>Your search results will appear here</h3>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
